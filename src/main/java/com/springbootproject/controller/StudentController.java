@@ -95,17 +95,17 @@ public class StudentController {
         }
     }
 
-    @GetMapping("/student/{courseDtoId}")
-    public String findStudentById(@PathVariable int id, Model model) throws StudentWithSuchAnIdDoesNotExistException {
+    @GetMapping("/student/{studentDtoId}")
+    public String findStudentById(@PathVariable int studentDtoId, Model model) throws StudentWithSuchAnIdDoesNotExistException {
         log.debug("findStudentById() was called");
 
-        Student student = studentServiceImpl.findStudentById(id);
+        Student student = studentServiceImpl.findStudentById(studentDtoId);
         StudentDto studentDto = new StudentDto(student.getId(), student.getName(), student.getAge(), student.getEmail());
 
         model.addAttribute("studentDto", studentDto);
         StudentIdDto idOfStudentToBeDeleted = new StudentIdDto();
         model.addAttribute("idOfStudentToBeDeleted", idOfStudentToBeDeleted);
-        return "/student/studentinfo";
+        return "student/studentinfo";
     }
 
     @PostMapping("/student/deletestudent")

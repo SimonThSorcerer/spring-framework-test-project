@@ -23,16 +23,16 @@
     </thead>
     <tbody>
     <tr th:each="studentDto : ${studentDto}">
-        <td th:text="${studentDto.id}"></td>
-        <td th:text="${studentDto.name}"></td>
-        <td th:text="${studentDto.age}"></td>
-        <td th:text="${studentDto.email}"></td>
+        <td th:text="${studentDto.studentDtoId}"></td>
+        <td th:text="${studentDto.studentDtoName}"></td>
+        <td th:text="${studentDto.studentDtoAge}"></td>
+        <td th:text="${studentDto.studentDtoEmail}"></td>
     </tr>
     </tbody>
 </table>
 Delete student with the following Id:
 <form th:action="@{/student/deletestudent}" th:object="${idOfStudentToBeDeleted}" method="post">
-    <input type="number" th:field="*{id}" placeholder="Id:" class="form-control col-4 mb-4" />
+    <input type="number" th:field="*{studentDtoId}" placeholder="Id:" class="form-control col-4 mb-4" />
     <button class="btn btn-primary" type="submit">Delete</button>
 </form>
 <div th:if="${studentDeleted}" class="alert alert-success">
