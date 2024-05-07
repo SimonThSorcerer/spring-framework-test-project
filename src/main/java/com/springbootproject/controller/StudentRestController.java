@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-@RequestMapping("/student")
+@RequestMapping("/studentrest")
 public class StudentRestController {
     @Autowired
     StudentServiceImpl studentServiceImpl;
